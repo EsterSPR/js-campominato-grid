@@ -1,4 +1,20 @@
-// 1 - Creare un bottone
-// 2 - Al clic creare una griglia numerata 10 x 10
-// 3 - Al clic sulla casella questa si colora di azzurro ed emette un messaggio in console col numero della cella cliccata
+document.getElementById('play-game').addEventListener('click', function (){
+    generateGameGrid();
+})
 
+
+//FUNZIONI
+
+function generateGameGrid() {
+    document.querySelector('.grid').innerHTML = '';
+    for(let i = 0; i < 100; i++){
+        const cell = document.createElement('div');
+        cell.classList.add('square');
+        cell.innerText =i+1;
+        cell.addEventListener('click', function(){
+            this.classList.toggle('clicked');
+            console.log(this.innerText);
+        });
+        document.querySelector('.grid').appendChild(cell);
+    }
+}
